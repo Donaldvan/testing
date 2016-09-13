@@ -6,51 +6,51 @@
   <artifactId>demo-project</artifactId>
   <version>1.1-SNAPSHOT</version>
   <packaging>jar</packaging>
-
-  <name>demo-project</name>
-  <url>http://maven.apache.org</url>
+	<name>git hub demo project</name>
+  <url>https://github.com/Donaldvan/testing</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
   <!--scm>
+	<url>https://github.com/Donaldvan/testing.git<url>
 	<connection>
-	scm:svn:URL
-	</connection-->
-	<!--developerConnection>
-		scm:svn:http://127.0.0.1/subversion/Branch/
+	scm:git:git://github.com/Donaldvan/testing.git</connection>
+	<developerConnection>
+		scm:git:ghttp://127.0.0.1/subversion/Branch/
 	</developerConnection>
   </scm-->
   
-  <pluginRepositories>
-    <pluginRepository>
-      <id>central</id>
-      <name>Maven Plugin Repository</name>
-      <url>http://repo1.maven.org/maven2</url>
-      <layout>default</layout>
+  <repositories>
+    <repository>
       <snapshots>
         <enabled>false</enabled>
       </snapshots>
+      <id>central</id>
+      <name>Central Repository</name>
+      <url>https://repo.maven.apache.org/maven2</url>
+    </repository>
+  </repositories>
+  
+  <pluginRepositories>
+    <pluginRepository>
       <releases>
         <updatePolicy>never</updatePolicy>
       </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <id>central</id>
+      <name>Central Repository</name>
+      <url>https://repo.maven.apache.org/maven2</url>
     </pluginRepository>
   </pluginRepositories>
   
-  	<build>
+  
+
 	
-	<!--Other than default maven dir structure-->
-		<resources> 
-		<resource>
-			<directory>${basedir}/custom</directory>
-		<includes>
-			<include>**/*.properties</include>
-		</includes>
-			</resource>
-  
-  </resources>
-  
+  <build>
   <plugins>
 	  <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -61,59 +61,30 @@
           <target>1.8</target>
         </configuration>
       </plugin>
-	  <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-jar-plugin</artifactId>
-		<version>2.4</version>
-        <configuration>
-          <archive>
-            <manifest>
-              <addClasspath>true</addClasspath>
-            </manifest>
-          </archive>
-        </configuration>     
-      </plugin>
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+			<version>2.4</version>
+          <configuration>
+			<archive>
+				<manifest>
+					<addClasspath>true</addClasspath>
+				</manifest>
+			</archive>
+		  </configuration>     
+		</plugin>
 	  
 		<plugin>
-          <groupId>org.apache.maven.plugins</groupId>
+			<groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-resources-plugin</artifactId>
             <version>2.7</version>
-			</plugin>
+		</plugin>
 			
-			<plugin>
-	<groupId>org.apache.maven.plugins</groupId>
-	<artifactId>maven-deploy-plugin</artifactId>
-   <!--version>*</version-->
-</plugin>
-        <!--plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-resources-plugin</artifactId>
-          <version>2.7</version>
-			<executions>
-				<execution>
-				<phase>package</phase>
-				<goals>
-					<goal>copy-resources</goal>
-				</goals>
-				</execution>
-			</executions>
-		<configuration>
-			<outputDirectory>custom</outputDirectory>
-			<resources>
-				<resource>
-					<directory>custom</directory>
-				<includes>
-					<include>**/**</include>
-				</includes>
-				<excludes>
-					<include>**/WEB-INF/*.*</include>
-				</excludes>
-
-				</resource>
-			</resources>
-		</configuration>
-		</plugin-->
-       
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-deploy-plugin</artifactId>
+			<!--version>*</version-->
+		</plugin>       
     </plugins>
   </build>
   
