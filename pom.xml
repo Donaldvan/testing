@@ -1,0 +1,106 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.democompany</groupId>
+  <artifactId>demo-project</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>demo-project</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <scm>
+	<!--connection>
+	scm:svn:URL
+	</connection-->
+	<developerConnection>
+		scm:svn:http://127.0.0.1/subversion/Branch/
+	</developerConnection>
+  </scm>
+  
+  	<build>
+	
+	<!--Other than default maven dir structure-->
+		<resources> 
+	<resource>
+		<directory>${basedir}/custom</directory>
+		<includes>
+			<include>**/*.properties</include>
+		</includes>
+			</resource>
+  
+  </resources>
+
+  <plugins>
+      
+	  <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.5</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+	  
+	  <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+		<version>2.4</version>
+        <configuration>
+          <archive>
+            <manifest>
+              <addClasspath>true</addClasspath>
+            </manifest>
+          </archive>
+        </configuration>     
+      </plugin>
+	  
+		
+        <!--plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>2.7</version>
+			<executions>
+				<execution>
+				<phase>package</phase>
+				<goals>
+					<goal>copy-resources</goal>
+				</goals>
+				</execution>
+			</executions>
+		<configuration>
+			<outputDirectory>custom</outputDirectory>
+			<resources>
+				<resource>
+					<directory>custom</directory>
+				<includes>
+					<include>**/**</include>
+				</includes>
+				<excludes>
+					<include>**/WEB-INF/*.*</include>
+				</excludes>
+
+				</resource>
+			</resources>
+		</configuration>
+		</plugin-->
+       
+    </plugins>
+  </build>
+  
+  
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <!--scope>test</scope-->
+    </dependency>
+  </dependencies>
+</project>
