@@ -102,8 +102,8 @@
       <version>3.8.1</version>
       <!--scope>test</scope-->
     </dependency>
-	
-	 <distributionManagement>
+</dependencies>
+<distributionManagement>
   <repository>
     <id>releases</id>
     <url>http://localhost:8081/nexus/content/repositories/releases/</url>
@@ -113,7 +113,6 @@
     <url>http://localhost:8081/nexus/content/repositories/snapshots/</url>
   </snapshotRepository>
 </distributionManagement>
-  </dependencies>
   
   
 </project>
