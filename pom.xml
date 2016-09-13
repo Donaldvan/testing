@@ -15,7 +15,7 @@
   </properties>
 
   <!--scm>
-	<!--connection>
+	<connection>
 	scm:svn:URL
 	</connection-->
 	<!--developerConnection>
